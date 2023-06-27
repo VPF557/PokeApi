@@ -32,6 +32,7 @@ public class Controller {
         {
             Tipo tipo = new Tipo();
             tipo = data.obtenerTipo(objeto1);
+            listaTipo.add(tipo);
             writter.escribirJsonTipo(listaTipo);
 
         }

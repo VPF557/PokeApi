@@ -72,7 +72,7 @@ public class DataHanding {
             String jsonData = response.body();
 
             Gson gson = new Gson();
-            tipo = gson.fromJson(jsonData, tipo.class);
+            tipo = gson.fromJson(jsonData, Tipo.class);
 
         } catch (URISyntaxException e) {
             System.out.println("Error al crear la request: " + e.getMessage());
