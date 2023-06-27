@@ -38,4 +38,32 @@ public class LeerJson
         }
         return listaJson;
     }
+
+    public static ArrayList<Parametro> LeerFicheroPeticiones(String ruta){
+        ArrayList<Parametro> listaJson = new ArrayList<>();
+
+        try {
+            //Creamos el objeto Gson
+            Gson gson = new Gson();
+
+            // Creamos el reader
+            Reader reader = null;
+            try {
+                reader = Files.newBufferedReader(Paths.get(ruta));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            listaJson = new Gson().fromJson(reader, new TypeToken<ArrayList<Parametro>>() {}.getType());
+            //Cerramos el reader
+            try {
+                reader.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
+        return listaJson;
+    }
 }

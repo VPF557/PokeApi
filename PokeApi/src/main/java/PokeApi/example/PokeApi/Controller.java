@@ -8,24 +8,24 @@ import java.util.ArrayList;
 public class Controller {
 
     @GetMapping("/registro")
-    public ArrayList<Pokemon> listaObjeto1()
+    public ArrayList<Parametro> listaObjeto1()
     {
         LeerJson reader = new LeerJson();
         //Leemos el reason e introducimos los elementos en un arraylist
-        ArrayList<Pokemon> lista = reader.LeerFicheroPokemons("Pokemons.json");
+        ArrayList<Parametro> listaPeticiones = reader.LeerFicheroPeticiones("Peticiones.json");
         //Mostramos los elementos leidos
-        return lista;
+        return listaPeticiones;
     }
 /*
     @PostMapping("/peticion")
     public ArrayList<Criptomoneda> create(@RequestBody Criptomoneda objeto1)
     {
-        DataHanding dataHanding = new DataHanding();
-        ArrayList<Criptomoneda> lista;
-        lista = dataHanding.AnadirObjeto1(objeto1,"Criptomonedas.json");
-        EscribirJson escribirJSON = new EscribirJson();
-        escribirJSON.escribirObjeto1(lista);
-        return lista;
+        LeerJson reader = new LeerJson();
+        //Leemos el reason e introducimos los elementos en un arraylist
+        ArrayList<Pokemon> listaPokemons = reader.LeerFicheroPokemons("Pokemons.json");
+        listaPokemons.add()
+        //Mostramos los elementos leidos
+        return listaPokemons;
     }
 */
 }
