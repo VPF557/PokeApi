@@ -2,6 +2,7 @@ package PokeApi.example.PokeApi;
 
 import com.google.gson.Gson;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,7 +15,7 @@ public class DataHanding {
 
     private final static String url = "https://pokeapi.co/api/v2/%s/%s";
 
-    public Pokemon obtenerPokemon(Parametro params, String ruta)
+    public Pokemon obtenerPokemon(Parametro params)
     {
 
         Pokemon pokemon = null;
@@ -50,4 +51,26 @@ public class DataHanding {
         return pokemon;
     }
 
+    static void escribirJsonPokemon(ArrayList<Pokemon> listaPokemon)
+    {
+
+        Gson gson = new Gson();
+
+        try (FileWriter writer = new FileWriter("pokemons.json")) {
+            gson.toJson(listaPokemon, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void escribirJsonPeticiones(ArrayList<Parametro> listaPokemon)
+    {
+        Gson gson = new Gson();
+
+        try (FileWriter writer = new FileWriter("Peticiones.json")) {
+            gson.toJson(listaPokemon, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
