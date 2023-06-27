@@ -51,26 +51,4 @@ public class DataHanding {
         return pokemon;
     }
 
-    static void escribirJsonPokemon(ArrayList<Pokemon> listaPokemon)
-    {
-
-        Gson gson = new Gson();
-
-        try (FileWriter writer = new FileWriter("pokemons.json")) {
-            gson.toJson(listaPokemon, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    static void escribirJsonPeticiones(ArrayList<Parametro> listaPokemon)
-    {
-        Gson gson = new Gson();
-
-        try (FileWriter writer = new FileWriter("Peticiones.json")) {
-            gson.toJson(listaPokemon, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

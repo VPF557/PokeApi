@@ -9,6 +9,7 @@ public class Controller {
 
     LeerJson reader = new LeerJson();
     DataHanding data = new DataHanding();
+    EscribirJson writter = new EscribirJson();
 
     @GetMapping("/registro")
     public ArrayList<Parametro> listaObjeto1()
@@ -33,8 +34,8 @@ public class Controller {
 
         listaPeticiones.add(objeto1);
 
-        data.escribirJsonPokemon(listaPokemons);
-        data.escribirJsonPeticiones(listaPeticiones);
+        writter.escribirJsonPokemon(listaPokemons);
+        writter.escribirJsonPeticiones(listaPeticiones);
     }
 
 }
