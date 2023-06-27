@@ -2,14 +2,14 @@ package PokeApi.example.PokeApi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class parametro
+public class Parametro
 {
     @JsonProperty
     private String parameter1;
     @JsonProperty
     private String parameter2;
 
-    public parametro() {
+    public Parametro() {
     }
 
     public String getParameter1() {

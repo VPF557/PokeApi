@@ -8,11 +8,11 @@ import java.util.ArrayList;
 public class Controller {
 
     @GetMapping("/registro")
-    public ArrayList<pokemon> listaObjeto1()
+    public ArrayList<Pokemon> listaObjeto1()
     {
         LeerJson reader = new LeerJson();
         //Leemos el reason e introducimos los elementos en un arraylist
-        ArrayList<pokemon> lista = reader.LeerFicheroJson1("Criptomonedas.json");
+        ArrayList<Pokemon> lista = reader.LeerFicheroPokemons("Pokemons.json");
         //Mostramos los elementos leidos
         return lista;
     }

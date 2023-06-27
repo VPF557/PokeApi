@@ -1,16 +1,53 @@
 package PokeApi.example.PokeApi;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 public class DataHanding {
-    public ArrayList<Criptomoneda> AnadirObjeto1(Criptomoneda objeto1, String ruta)
+
+    private final static String url = "https://pokeapi.co/api/v2/%s/%s";
+
+    public Pokemon obtenerPokemon(Parametro params, String ruta)
     {
-        //En esta funcion se añaden los nuevos elementos enviados desde el front a un ArrayList para posteriormente actualizar la BBDD
-        LeerJson reader = new LeerJson();
-        ArrayList<Criptomoneda> listaAux = reader.LeerFicheroJson1(ruta);
-        objeto1.setId(listaAux.get(listaAux.size() - 1).getId() + 1);
-        listaAux.add(objeto1);
-        return listaAux;
+
+        Pokemon pokemon = null;
+
+        String peopleUrl = String.format(url, params.getParameter1(), params.getParameter2());
+
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(peopleUrl))
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = HttpClient
+                    .newBuilder()
+                    .build()
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+
+            String jsonData = response.body();
+
+            Gson gson = new Gson();
+            pokemon = gson.fromJson(jsonData, Pokemon.class);
+
+        } catch (URISyntaxException e) {
+            System.out.println("Error al crear la request: " + e.getMessage());
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return pokemon;
     }
 
 }

@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class LeerJson
 {
-    public static ArrayList<pokemon> LeerFicheroJson1(String ruta){
-        ArrayList<pokemon> listaJson = new ArrayList<>();
+    public static ArrayList<Pokemon> LeerFicheroPokemons(String ruta){
+        ArrayList<Pokemon> listaJson = new ArrayList<>();
 
         try {
             //Creamos el objeto Gson
@@ -25,7 +25,7 @@ public class LeerJson
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            listaJson = new Gson().fromJson(reader, new TypeToken<ArrayList<pokemon>>() {}.getType());
+            listaJson = new Gson().fromJson(reader, new TypeToken<ArrayList<Pokemon>>() {}.getType());
             //Cerramos el reader
             try {
                 reader.close();
