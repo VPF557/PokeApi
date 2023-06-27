@@ -14,7 +14,7 @@ public class DataHanding {
 
     private final static String url = "https://pokeapi.co/api/v2/%s/%s";
 
-    public Pokemon obtenerPokemon(Parametro params, String ruta)
+    public Pokemon obtenerPokemon(Parametro params)
     {
 
         Pokemon pokemon = null;
