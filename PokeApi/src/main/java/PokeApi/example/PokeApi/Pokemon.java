@@ -2,7 +2,7 @@ package PokeApi.example.PokeApi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class pokemon
+public class Pokemon
 {
     @JsonProperty
     private String name;
@@ -11,10 +11,10 @@ public class pokemon
     @JsonProperty
     private int height;
 
-    public pokemon() {
+    public Pokemon() {
     }
 
-    public pokemon(String name, String url, int height) {
+    public Pokemon(String name, String url, int height) {
         this.name = name;
         this.url = url;
         this.height = height;
