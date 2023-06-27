@@ -1,6 +1,7 @@
 package PokeApi.example.PokeApi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.Gson;
 
 public class Pokemon
 {
@@ -45,10 +46,7 @@ public class Pokemon
     }
 
     public String toString() {
-        return "Pokemon{" +
-                "name='" + name + '\'' +
-                ", weight='" + weight + '\'' +
-                ", height='" + height + '\'' +
-                '}';
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }

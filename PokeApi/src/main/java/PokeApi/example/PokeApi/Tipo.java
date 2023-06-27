@@ -1,6 +1,7 @@
 package PokeApi.example.PokeApi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.Gson;
 
 public class Tipo
 {
@@ -36,9 +37,7 @@ public class Tipo
 
     @Override
     public String toString() {
-        return "Tipo{" +
-                "name='" + name + '\'' +
-                "id='" + id + '\'' +
-                '}';
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }

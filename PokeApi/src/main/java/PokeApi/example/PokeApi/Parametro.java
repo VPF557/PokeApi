@@ -1,6 +1,7 @@
 package PokeApi.example.PokeApi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.Gson;
 
 public class Parametro
 {
@@ -30,9 +31,7 @@ public class Parametro
 
     @Override
     public String toString() {
-        return "Parametro{" +
-                "parameter1='" + parameter1 + '\'' +
-                "parameter2='" + parameter2 + '\'' +
-                '}';
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }
