@@ -30,7 +30,7 @@ public class Parametro
 
     @Override
     public String toString() {
-        return "Params{" +
+        return "Parametro{" +
                 "parameter1='" + parameter1 + '\'' +
                 "parameter2='" + parameter2 + '\'' +
                 '}';

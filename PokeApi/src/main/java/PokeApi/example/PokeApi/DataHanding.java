@@ -51,26 +51,40 @@ public class DataHanding {
         return pokemon;
     }
 
-    static void escribirJsonPokemon(ArrayList<Pokemon> listaPokemon)
+    public Tipo obtenerTipo(Parametro params)
     {
 
-        Gson gson = new Gson();
+        Tipo tipo = null;
 
-        try (FileWriter writer = new FileWriter("pokemons.json")) {
-            gson.toJson(listaPokemon, writer);
+        String peopleUrl = String.format(url, params.getParameter1(), params.getParameter2());
+
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(peopleUrl))
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = HttpClient
+                    .newBuilder()
+                    .build()
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+
+            String jsonData = response.body();
+
+            Gson gson = new Gson();
+            tipo = gson.fromJson(jsonData, Tipo.class);
+
+        } catch (URISyntaxException e) {
+            System.out.println("Error al crear la request: " + e.getMessage());
+            throw new RuntimeException(e);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+
+
+        return tipo;
     }
 
-    static void escribirJsonPeticiones(ArrayList<Parametro> listaPokemon)
-    {
-        Gson gson = new Gson();
-
-        try (FileWriter writer = new FileWriter("Peticiones.json")) {
-            gson.toJson(listaPokemon, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
