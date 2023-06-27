@@ -31,4 +31,16 @@ public class EscribirJson {
             e.printStackTrace();
         }
     }
+
+    static void escribirJsonTipo(ArrayList<Tipo> listaTipo)
+    {
+
+        Gson gson = new Gson();
+
+        try (FileWriter writer = new FileWriter("Tipos.json")) {
+            gson.toJson(listaTipo, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

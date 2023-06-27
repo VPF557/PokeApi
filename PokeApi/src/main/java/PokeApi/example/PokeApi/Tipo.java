@@ -7,7 +7,7 @@ public class Tipo
     @JsonProperty
     private String name;
     @JsonProperty
-    private String url;
+    private int id;
 
     public Tipo()
     {
@@ -15,7 +15,7 @@ public class Tipo
 
     public Tipo(String name, String url) {
         this.name = name;
-        this.url = url;
+        this.id = id;
     }
 
     public String getName() {
@@ -26,19 +26,19 @@ public class Tipo
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
+    public int getId() {
+        return id;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "Tipo{" +
                 "name='" + name + '\'' +
-                "url='" + url + '\'' +
+                "id='" + id + '\'' +
                 '}';
     }
 }

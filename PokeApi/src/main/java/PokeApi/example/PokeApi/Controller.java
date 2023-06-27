@@ -28,13 +28,24 @@ public class Controller {
         ArrayList<Parametro> listaPeticiones = reader.LeerFicheroPeticiones("Peticiones.json");
         ArrayList<Tipo> listaTipo = reader.LeerFicheroTipos("Tipos.json");
 
-        Pokemon pokemon = new Pokemon();
-        pokemon = data.obtenerPokemon(objeto1);
-        listaPokemons.add(pokemon);
+        if(objeto1.getParameter1().equals("type"))
+        {
+            Tipo tipo = new Tipo();
+            tipo = data.obtenerTipo(objeto1);
+            writter.escribirJsonTipo(listaTipo);
+
+        }
+        else
+        {
+            Pokemon pokemon = new Pokemon();
+            pokemon = data.obtenerPokemon(objeto1);
+            listaPokemons.add(pokemon);
+            writter.escribirJsonPokemon(listaPokemons);
+
+        }
 
         listaPeticiones.add(objeto1);
 
-        writter.escribirJsonPokemon(listaPokemons);
         writter.escribirJsonPeticiones(listaPeticiones);
     }
 

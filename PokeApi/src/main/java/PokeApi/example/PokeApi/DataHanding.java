@@ -51,4 +51,40 @@ public class DataHanding {
         return pokemon;
     }
 
+    public Tipo obtenerTipo(Parametro params)
+    {
+
+        Tipo tipo = null;
+
+        String peopleUrl = String.format(url, params.getParameter1(), params.getParameter2());
+
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(peopleUrl))
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = HttpClient
+                    .newBuilder()
+                    .build()
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+
+            String jsonData = response.body();
+
+            Gson gson = new Gson();
+            tipo = gson.fromJson(jsonData, tipo.class);
+
+        } catch (URISyntaxException e) {
+            System.out.println("Error al crear la request: " + e.getMessage());
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return tipo;
+    }
+
 }
