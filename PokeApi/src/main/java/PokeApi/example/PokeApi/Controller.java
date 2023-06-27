@@ -22,6 +22,7 @@ public class Controller {
     @PostMapping("/peticion")
     public void mandarElemento(@RequestBody Parametro objeto1)
     {
+        //Hecho
         ArrayList<Pokemon> listaPokemons = reader.LeerFicheroPokemons("Pokemons.json");
         ArrayList<Parametro> listaPeticiones = reader.LeerFicheroPeticiones("Peticiones.json");
 
