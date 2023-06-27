@@ -9,6 +9,7 @@ public class Controller {
 
     LeerJson reader = new LeerJson();
     DataHanding data = new DataHanding();
+    EscribirJson writter = new EscribirJson();
 
     @GetMapping("/registro")
     public ArrayList<Parametro> listaObjeto1()
@@ -25,15 +26,28 @@ public class Controller {
         //Hecho
         ArrayList<Pokemon> listaPokemons = reader.LeerFicheroPokemons("Pokemons.json");
         ArrayList<Parametro> listaPeticiones = reader.LeerFicheroPeticiones("Peticiones.json");
+        ArrayList<Tipo> listaTipo = reader.LeerFicheroTipos("Tipos.json");
 
-        Pokemon pokemon = new Pokemon();
-        pokemon = data.obtenerPokemon(objeto1);
-        listaPokemons.add(pokemon);
+        if(objeto1.getParameter1().equals("type"))
+        {
+            Tipo tipo = new Tipo();
+            tipo = data.obtenerTipo(objeto1);
+            listaTipo.add(tipo);
+            writter.escribirJsonTipo(listaTipo);
+
+        }
+        else
+        {
+            Pokemon pokemon = new Pokemon();
+            pokemon = data.obtenerPokemon(objeto1);
+            listaPokemons.add(pokemon);
+            writter.escribirJsonPokemon(listaPokemons);
+
+        }
 
         listaPeticiones.add(objeto1);
 
-        data.escribirJsonPokemon(listaPokemons);
-        data.escribirJsonPeticiones(listaPeticiones);
+        writter.escribirJsonPeticiones(listaPeticiones);
     }
 
 }
