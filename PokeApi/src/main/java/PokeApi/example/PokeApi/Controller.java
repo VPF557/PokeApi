@@ -27,8 +27,12 @@ public class Controller {
 
         Pokemon pokemon = new Pokemon();
         pokemon = data.obtenerPokemon(objeto1);
+        listaPokemons.add(pokemon);
 
+        listaPeticiones.add(objeto1);
 
+        data.escribirJsonPokemon(listaPokemons);
+        data.escribirJsonPeticiones(listaPeticiones);
     }
 
 }
