@@ -25,6 +25,7 @@ public class Controller {
         //Hecho
         ArrayList<Pokemon> listaPokemons = reader.LeerFicheroPokemons("Pokemons.json");
         ArrayList<Parametro> listaPeticiones = reader.LeerFicheroPeticiones("Peticiones.json");
+        ArrayList<Tipo> listaTipo = reader.LeerFicheroTipos("Tipos.json");
 
         Pokemon pokemon = new Pokemon();
         pokemon = data.obtenerPokemon(objeto1);

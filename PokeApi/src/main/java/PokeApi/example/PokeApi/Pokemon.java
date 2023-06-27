@@ -7,16 +7,16 @@ public class Pokemon
     @JsonProperty
     private String name;
     @JsonProperty
-    private String url;
+    private int weight;
     @JsonProperty
     private int height;
 
     public Pokemon() {
     }
 
-    public Pokemon(String name, String url, int height) {
+    public Pokemon(String name, int weight, int height) {
         this.name = name;
-        this.url = url;
+        this.weight = weight;
         this.height = height;
     }
 
@@ -28,12 +28,12 @@ public class Pokemon
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setWeight(String Weight) {
+        this.weight = weight;
     }
 
     public int getHeight() {
@@ -47,7 +47,7 @@ public class Pokemon
     public String toString() {
         return "Pokemon{" +
                 "name='" + name + '\'' +
-                "url='" + url + '\'' +
+                ", weight='" + weight + '\'' +
                 ", height='" + height + '\'' +
                 '}';
     }
