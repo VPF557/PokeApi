@@ -2,22 +2,20 @@ package PokeApi.example.PokeApi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Pokemon
+public class Tipo
 {
     @JsonProperty
     private String name;
     @JsonProperty
     private String url;
-    @JsonProperty
-    private int height;
 
-    public Pokemon() {
+    public Tipo()
+    {
     }
 
-    public Pokemon(String name, String url, int height) {
+    public Tipo(String name, String url) {
         this.name = name;
         this.url = url;
-        this.height = height;
     }
 
     public String getName() {
@@ -36,19 +34,11 @@ public class Pokemon
         this.url = url;
     }
 
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
+    @Override
     public String toString() {
-        return "Pokemon{" +
+        return "Tipo{" +
                 "name='" + name + '\'' +
                 "url='" + url + '\'' +
-                ", height='" + height + '\'' +
                 '}';
     }
 }
